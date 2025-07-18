@@ -1,0 +1,18 @@
+<?php
+@extract($_GET);
+@extract($_POST);
+@extract($_SESSION);
+
+$link=mysql_connect("localhost","root","ncm123");
+if(!$link)
+{
+	  die ('Connectivity Problem : ' . mysql_error());
+}
+else
+{
+$db_selected = mysql_select_db('democms', $link);
+mysql_query("SET NAMES utf8");
+}
+?>
+
+

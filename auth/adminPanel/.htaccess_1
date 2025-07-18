@@ -1,0 +1,17 @@
+php_value session.cookie_httponly 1
+RewriteEngine On 
+
+<Files ~ "^\w+\.(gif|jpe?g|png|doc|pdf)$">
+order deny,allow
+allow from all
+</Files>
+<IfModule mod_rewrite.c>
+   RewriteEngine on
+   RewriteRule ^manage_menu.php?module_id=1$ index.php
+  
+   
+</IfModule>
+Header set X-Frame-Options "SAMEORIGIN"
+#Header set X-Frame-Options DENY
+
+ErrorDocument 404 http://45.115.99.201/nwda/auth/adminPanel/error.php

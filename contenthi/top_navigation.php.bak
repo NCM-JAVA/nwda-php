@@ -1,0 +1,69 @@
+	<div class="container nav-container">
+        <ul id="nav" class="menu">
+        <li class="active"><a title="Home" href="<?php echo $HomeURL; ?>/content/index.php"><i class="fa fa-home"></i></a></li>
+        <?php
+            $sql = mysql_query("select * from menu_publish where m_flag_id='0' and menu_positions='1' and language_id='2' and approve_status='3'  ORDER BY page_postion ASC limit 0,8"); 		
+			$count=mysql_num_rows($sql);
+            $i = 1;
+            while ($row = mysql_fetch_array($sql)) {
+            $sql1 = mysql_query("select * from menu_publish where m_flag_id='".$row['m_publish_id']."' and menu_positions='1' and language_id='2' and approve_status='3' ORDER BY page_postion ASC");
+            //echo "select * from menu_publish where m_flag_id='".$row['m_publish_id']."' and menu_positions='1' and language_id='2' and approve_status='3' ORDER BY page_postion ASC";
+            $row2 = mysql_num_rows($sql1);
+            $m_id=$row['m_id'];
+            if($row['m_type']=='1'){ $pageurlh='<a title="'.$row['m_name'].'" href="'.$HomeURL.'/content/page/'.$row['m_url'].'">'.$row['m_name'].'</a>'; }
+            if($row['m_type']=='2'){ $pageurlh='<a title="'.$row['m_name'].'" target="_blank" href="../upload/'.$row['doc_uplode'].'">'.$row['m_name'].'</a>'; }
+            if($row['m_type']=='3'){  $pageurlh='<a title="'.$row['m_name'].'" target="_blank" href="'.$row['linkstatus'].'">'.$row['m_name'].'</a>'; }
+            ?>
+				
+             <?php if($row2 > 0){
+					  $pageurlh='<a title="'.$row['m_name'].'" href="#">'.$row['m_name'].'</a>';
+					 	 ?>
+						 <?php if($i=='1') {
+				 ?>
+				<li class='sub-menu'><?php echo $pageurlh;?>
+				<?php } elseif($i==$count)
+					 { ?>
+					 <li class='sub-menu'><?php echo $pageurlh;?><?php } else { ?>
+					 <li class='sub-menu'><?php echo $pageurlh;?>
+					 <?php } ?>
+				<ul>
+				<?php 	
+					while($rows = mysql_fetch_array($sql1)) 
+					{
+					if($rows['m_type']=='1'){ $pageurlh1='<a title="'.$rows['m_name'].'" href="'.$HomeURL.'/content/page/'.$rows['m_url'].'">'.$rows['m_name'].'</a>'; }
+		if($rows['m_type']=='2'){ $pageurlh1='<a title="'.$rows['m_name'].'" target="_blank" href="../upload/'.$rows['doc_uplode'].'">'.$rows['m_name'].'</a>'; }
+		if($rows['m_type']=='3'){  $pageurlh1='<a title="'.$rows['m_name'].'" target="_blank" href="'.$rows['linkstatus'].'">'.$rows['m_name'].'</a>'; } ?>
+                                       
+					<?php $sql2 = mysql_query("select * from menu_publish where m_flag_id='".$rows['m_publish_id']."' and menu_positions='1' and language_id='2' and approve_status='3' ORDER BY page_postion ASC");
+				$row3 = mysql_num_rows($sql2);?>
+                                <li <?php if($row3 >0){?>class='sub-menu'<?php }?>><?php echo $pageurlh1;?>
+				<?php if($row3 >0){
+				?>
+							<ul>
+				<?php 	
+					while($rows3 = mysql_fetch_array($sql2)) 
+					{
+					if($rows['m_type']=='1'){ $pageurlh2='<a title="'.$rows3['m_name'].'" href="'.$HomeURL.'/content/page/'.$rows3['m_url'].'">'.$rows3['m_name'].'</a>'; }
+		if($rows3['m_type']=='2'){ $pageurlh2='<a title="'.$rows3['m_name'].'" target="_blank" href="../upload/'.$rows3['doc_uplode'].'">'.$rows3['m_name'].'</a>'; }
+		if($rows['m_type']=='3'){  $pageurlh2='<a title="'.$rows3['m_name'].'" target="_blank" href="'.$rows3['linkstatus'].'">'.$rows3['m_name'].'</a>'; } ?>
+					<li><?php echo $pageurlh2;?></li>
+				<?php } ?>
+				</ul>
+				<?php }?>
+					
+					 </li>
+				<?php } ?>
+				</ul>
+				<?php } else {?>
+				<?php if($i=='1') {
+				 ?>
+				<li><?php echo $pageurlh;?>
+				<?php } elseif($i==$count)
+					 { ?>
+					 <li><?php echo $pageurlh;?><?php } else { ?>
+					 <li><?php echo $pageurlh;?>
+					 <?php } }?>
+				</li>
+				<?php $i++;} ?>       
+        </ul>
+    </div>

@@ -1,0 +1,1 @@
+<?php echo "Direct access to directory is not allowed!"; ?>

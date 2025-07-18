@@ -1,0 +1,78 @@
+body{
+font-size:100%;
+}
+.top-bar,nav,footer,.left-navigation{display:none;}
+.main-content{width:100%;}
+@media print 
+{
+  a[href]:after { content: none !important; }
+  img[src]:after { content: none !important; }
+  
+table tr td {
+	font-size: 9px !important;
+	line-height:7px !important;
+}
+ 
+  
+  
+#menu {
+	display:none !important;
+}
+.btn-default {
+	display:none !important;
+}
+.back-btn {
+	display:none !important;
+}
+
+
+.topLinks{
+	display:none !important;
+}
+.main_con {
+	width: 100% !important;
+}
+.right-links, .logo_row {
+	display: none;
+}
+#logotext {
+	display: block !important;
+	width: 100%;
+	position: relative;
+    top: -80px;
+}
+#logotext1 {
+	width: 10%;
+}
+#logotext2 {
+	width: 90%;
+	bottom: 42px;
+	position: relative;
+}
+.right_col1 {
+	position: relative;
+    top: -80px;
+}
+table{
+	display:block;
+	width:100%;
+}
+.jOrgChart .node{
+	padding:0 !important;
+	font-size: 12px !important;
+}
+.orgcharts {
+	width:100%;
+	overflow: visible !important;
+}
+
+
+
+.breadcrumb{
+display:none;
+}
+@media (max-width: 990px){
+p {
+    font-size: 96%;
+}
+}

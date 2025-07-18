@@ -1,0 +1,55 @@
+@media print 
+{
+  a[href]:after { content: none !important; }
+  img[src]:after { content: none !important; }
+}
+
+@page {/* size: portrait; */
+margin: 4px;}
+
+.top-bar{
+	display: none;
+}
+
+/*.left-navigation{
+	
+	width: 100%;
+	text-align: center;
+	border: none;
+}*/
+.list-group{
+	width: 60%;
+	float: left;
+}
+
+.main-button{
+	width: 60%;
+	float: left;
+}
+
+/*.main-content{width:100%;}*/
+.top-main{
+	width: 100%;
+}
+.banner{
+	width: 100%;
+	
+}
+.bottm-scroller{
+	width: 100%;
+}
+.news h3{
+	font-size: 20px;
+	text-align: left;
+	
+}
+.news{
+	display: block;
+	width: 100%;
+	text-align:center;
+	
+}
+
+.footer{
+	width: 100%;
+}

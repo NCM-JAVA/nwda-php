@@ -1,0 +1,35 @@
+<?php
+$sqlprofile="select org.*,os.designation from minister_profile as org INNER JOIN designation_setup as os ON org.designation=os.deg_id  where org.approve_status='3' and org.language_id='1' order by org.id asc";
+$resprofile=mysql_query($sqlprofile) or die(mysql_error());
+$Totalrows=mysql_num_rows($resprofile);
+if($Totalrows>=2)
+{
+while($rowprofile = mysql_fetch_array($resprofile))
+{
+$newimg_uplode = $rowprofile['img_uplode'];
+ $image_path = $HomeURL.'/upload/profile/'.$newimg_uplode;
+?>
+
+<div class="profile">
+								<img src="<?php echo $image_path?>" width="83" height="103" alt="profile2" title="minister img1">
+								<p><b><?php echo $rowprofile['name'];    ?></b>
+								<p><?php echo $rowprofile['designation'];    ?><br>
+<?php  //echo substr($rowprofile['short_desc'],0,60);  ?></p>
+								</div>
+<?php } 
+} else {
+ 	
+while($rowprofile = mysql_fetch_array($resprofile))
+{
+$newimg_uplode = $rowprofile['img_uplode'];
+ $image_path = $HomeURL.'/upload/profile/'.$newimg_uplode;
+?>
+
+<div class="profile">
+								<img src="<?php echo $image_path?>" width="83" height="103" alt="profile2" title="minister img1">
+								<p><b><?php echo $rowprofile['name'];    ?></b>
+								<p><?php echo $rowprofile['designation'];    ?><br>
+<?php  echo substr($rowprofile['content'],0,350);  ?></p>
+								</div>
+<?php } 
+}  ?>							

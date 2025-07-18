@@ -1,0 +1,510 @@
+<?php ob_start();
+include("../../includes/config.inc.php");
+require_once "../../includes/connection.php";
+include("../../includes/useAVclass.php");
+include("../../includes/functions.inc.php");
+//include("../../includes/functions-data.php");
+include("../../includes/def_constant.inc.php");
+require_once("../../includes/ps_pagination.php");
+@extract($_GET);
+@extract($_POST);
+@extract($_SESSION);
+$useAVclass = new useAVclass();
+$useAVclass->connection();
+$role_id=$_SESSION['dbrole_id'];
+$user_id=$_SESSION['admin_auto_id_sess'];
+$model_id= "6";
+$role_map=role_permission($user_id,$role_id,$model_id);
+$role_id_page=role_permission_page($user_id,$role_id,$model_id);
+if($_SESSION['admin_auto_id_sess']=='')
+	{		
+		$msg = "Login to Access Admin Panel";
+		$_SESSION['sess_msg'] = $msg ;
+		header("Location:index.php");
+		exit;	
+	}
+if($_SESSION['saltCookie']!=$_COOKIE['Temp'])
+{
+		session_unset($admin_auto_id_sess);
+		session_unset($login_name);
+		session_unset($dbrole_id);
+		$msg = "Login to Access Admin Panel";
+		$_SESSION['sess_msg'] = $msg ;
+		header("Location:error.php");
+		exit;	
+}
+if($role_id_page==0)
+{
+$msg = "Login to Access Admin Panel";
+		$_SESSION['sess_msg'] = $msg ;
+		header("Location:error.php");
+		exit;	
+}	
+if($_SESSION['lname'] =="")
+{
+$_SESSION['lname']='English';
+}
+if($_SESSION['lname']=='English')
+{
+$language='1';
+}
+else if($_SESSION['lname']=='Hindi')
+{
+$language='2';
+}
+if($deleteid !='')
+{
+if(($_SESSION['logtoken']!=$random) or (!is_numeric(trim($deleteid))))
+	{
+		/*session_unset($admin_auto_id_sess);
+		session_unset($login_name);
+		session_unset($dbrole_id);*/
+		$msg = "Login to Access Admin Panel";
+		$_SESSION['sess_msg'] = $msg ;
+		header("Location:error.php");
+		exit();
+	}
+	else {
+		$_COOKIE['Temp']="";
+		$_SESSION['saltCookie']="";
+		$_SESSION['Temptest']="";
+		$saltCookie =uniqid(rand(59999, 199999));
+		$_SESSION['saltCookie'] =$saltCookie;
+		$_SESSION['Temptest']=$_SESSION['saltCookie'];
+		setcookie("Temp",$_SESSION['saltCookie']);
+		$_SESSION['logtoken'] =md5(uniqid(mt_rand(), true));
+	
+	}
+ $check_status=check_delete($user_id,$role_id,$model_id);
+ 			if($check_status >0)
+			{
+			
+			 $sqd = "select image_file FROM vacancy_application_form WHERE id=$deleteid";
+					$sql="Delete From vacancy_application_form where id='$deleteid'";
+					$res=mysql_query($sql);
+					$page_id=mysql_insert_id();
+					
+    $rs = mysql_query($sqd);
+	$row=mysql_fetch_array($rs);
+
+    $image_path = "../../upload/vacancy/images".$row['image_file'];
+    unlink($image_path);
+  
+					$SQL1 = "SELECT * FROM audit_trail where page_id='$deleteid'";
+				    $Query = mysql_query($SQL1);
+					$pagename  = mysql_result($Query,0,'page_name');
+					$txtlanguage  = mysql_result($Query,0,'lang');
+					$txtstatus  = mysql_result($Query,0,'approve_status');
+					$gallery_categoryname  = mysql_result($Query,0,'page_title');
+					$user_id=$_SESSION['admin_auto_id_sess'];			
+					$page_id=mysql_insert_id();
+					$action="Delete";
+					$categoryid='1'; //mol_content
+					$date=date("Y-m-d h:i:s");
+					$ip=$_SERVER['REMOTE_ADDR'];
+					$model_id='Manage Consultation Papers';
+
+					$tableName="audit_trail";
+					$tableFieldsName_send=array("user_login_id","page_id","page_name","page_action","page_category","page_action_date","ip_address","lang","page_title","approve_status");
+					$tableFieldsValues_send=array("$user_id","$deleteid","$pagename","$action","$model_id","$date","$ip","$txtlanguage","$gallery_categoryname","$txtstatus");
+					$useAVclass->insertQuery($tableName,$tableFieldsName_send,$tableFieldsValues_send);
+
+					if($res)
+					{	
+					header("location:delete.php?status=vacancy_deleteid");
+					}
+			}
+			else
+			{
+			/*session_unset($admin_auto_id_sess);
+			session_unset($login_name);
+			session_unset($dbrole_id); */
+			$msg = "Login to Access Admin Panel";
+			$_SESSION['sess_msg'] = $msg ;
+			header("Location:error.php");
+			exit();
+			}
+	
+}
+
+if(($inactiveid !=''))
+{
+	if(($_SESSION['logtoken']!=$random) or (!is_numeric(trim($inactiveid))))	{
+		session_unset($admin_auto_id_sess);
+		session_unset($login_name);
+		session_unset($dbrole_id);
+		$msg = "Login to Access Admin Panel";
+		$_SESSION['sess_msg'] = $msg ;
+		header("Location:error.php");
+		exit();
+	}
+	else {
+		$_COOKIE['Temp']="";
+		$_SESSION['saltCookie']="";
+		$_SESSION['Temptest']="";
+		$saltCookie =uniqid(rand(59999, 199999));
+		$_SESSION['saltCookie'] =$saltCookie;
+		$_SESSION['Temptest']=$_SESSION['saltCookie'];
+		setcookie("Temp",$_SESSION['saltCookie']);
+		$_SESSION['logtoken'] =md5(uniqid(mt_rand(), true));
+	
+	}
+
+   $sql="Update vacancy_application_form set status='1' where m_id='$inactiveid'";
+ $res=mysql_query($sql);
+  $sql="Update vacancy_application_form set status='1' where m_publish_id='$inactiveid'";
+ $res=mysql_query($sql);
+	if($res)
+	{	
+	header("location:delete.php?status=vacancy_inactiveid");
+	}
+}
+
+
+$JobTitleList = getJobTitle();
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>View Applied Vacancy: <?php echo $sitename;?></title>
+	<link href="style/admin.css" rel="stylesheet" type="text/css" />
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="style/ie7.css">
+<![endif]-->
+	<!--<script type="text/javascript" src="style/validation.js"></script>-->
+<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="style/ie7.css">
+<![endif]-->
+
+<script>
+	function MM_openBrWindow(theURL,winName,features) 
+	{ 
+		window.open(theURL,winName,features);
+	}
+	</script>
+	
+	</head>
+
+	<body>
+    
+<?php include('top_header.php'); ?>
+    
+<div id="container"> 
+      
+    
+  
+  <div class="clear"></div>
+
+  <?php
+		include_once('main_menu.php');
+	 ?>
+  <!-- Header end -->
+ 
+  <div class="main_con">
+       
+       <div id="validterror" style="color:#F00" align="center"></div>   
+        <div class="right_col1">
+                  <div class="clear"></div>
+				  
+<?php 
+	if($btnsubmit=="Search")
+	{
+		if($filter_search!='')
+		{
+				if(preg_match("/^[aA-zZ][a-zA-Z -]{2,20}+$/", trim($filter_search)) == 0)
+				{
+				$errmsg = 'Name must be from letters that should be minimum 2 and maximum 20.<br>';
+				}
+				else
+				 {
+					$querywhere .=" and name LIKE '%$filter_search%'"; 
+				 }
+		}
+		if($texcat!='')
+		{
+		 $querywhere .=" and vacancy_id=$texcat"; 
+		}
+		
+
+
+	 
+	  if($errmsg=='')	
+	  {
+  $query ="select * from vacancy_application_form where 1  $querywhere ORDER BY id ASC "; 
+	  }
+	 else
+	{
+	$_SESSION['errors']=$errmsg;
+	}	
+}
+else { 
+
+
+
+  $query ="select * from vacancy_application_form where 1  $wherecluse ORDER BY id ASC ";
+}
+?>      
+          <?php if($_SESSION['content']!=""){?>
+        <div  id="msgclose" class="status success">
+<div class="closestatus" style="float: none;">
+<p class="closestatus" style="float: right;"><img alt="Attention" src="images/close.png" class="margintop"></p>
+<p><img alt="Attention" src="images/approve.png" class="margintop"> <span>Attention! </span><?php echo $_SESSION['content'];
+$_SESSION['content']=""; ?>.</p>
+</div>
+</div>
+                    <?php  
+ }?>
+  <?php if($_SESSION['errors']!=""){?> 
+<div  id="msgerror" class="status error">
+<div class="closestatus" style="float: none;">
+<p class="closestatus" style="float: right;"><img alt="Attention" src="images/close.png" class="margintop"></p>
+<p><img alt="error" src="images/error.png"> <span>Attention! <br /></span><?php echo $_SESSION['errors']; $_SESSION['errors']="";?></p>
+</div>
+</div>
+  <?php }?>  
+
+          
+ 
+
+      <div class="clear"></div>
+      <div class="internalpage_heading">
+ <h3 class="manageuser">View Applied Vacancy</h3>
+
+
+ </div>
+		
+              <div class="tab-container" id="outer-container"  style="padding:5px 5px -12px  0px">
+            <div class="grid_view">
+            <div class="new-gried">
+   <?php //d($JobTitleList);  ?>        
+ <form id="manage_menu" name="manage_menu" method="post" action="">
+      <div class="filter-select fltrt">          
+<label class="filter-search-lbl" for="filter_search">Filter:</label>
+<input id="filter_search" type="text" title="Search title or Menu Name." value="" name="filter_search">
+<select name="texcat" id="texcat" autocomplete="off">
+<option value="">Select</option>
+<?php 
+foreach($JobTitleList as $key=>$value)
+{
+	?>
+<option value="<?php echo $value['id']; ?>" <?php if($value['id']==$texcat){ echo 'selected="selected"'; } else { }?>><?php echo $value['job_title']; ?></option>
+<?php }
+ ?>
+</select>
+
+
+	</span>
+
+			
+ <input type="submit" name="btnsubmit" value="Search" class="button_m"/>			
+</div>
+	            <div class="clear"></div>
+          
+              </form>
+ 
+ </div>
+
+ </div>
+		
+              <div class="tab-container" id="outer-container"  style="padding:5px 5px -12px  0px">
+            <div class="grid_view">
+                         <table width="100%" border="1" cellspacing="2" cellpadding="2" summary="" >
+                                  <tr>
+							      <th width="20%">Name</th>
+							      <th width="20%">Email</th>                                 
+                                  <th width="12%">Phone</th>
+                                  <th width="12%">Address</th>
+                                  <th width="12%">Create Date</th>
+                                  <th width="14%">Vacancy Applied</th>
+                                </tr>
+								</table>								
+          <div id="list">
+				<div id="response"> </div>
+  
+							<?php	
+							$pager = new PS_Pagination($link, $query,"txtstatus=$txtstatus");
+							$rs = $pager->paginate();
+							if($rs > 0){
+							?>
+							<ul class="">
+							<?php 
+							while($data = mysql_fetch_array($rs, MYSQL_ASSOC))
+							{ 								
+							@extract($data);
+							if($class=="odd")
+							{
+							$class="even";
+							}
+							else
+							{
+							$class="odd";
+							}
+								//$vacancytype = $mydb->getJobTitleById($vacancy_id);
+								//print_r($vacancytype);
+							$image_path = $HomeURL."/upload/vacancy/images/".$image_file;
+							?>
+							<li id="arrayorder_<?php echo $id ?>" class="<?php echo $class;?>">
+							
+							<span class="space-menuname_m" style="width:22%;"><input type="radio"  name="radio1" id="<?php echo $id; ?>"  value="<?php echo $id; ?>" onclick="editlist(this.value);" >&nbsp;&nbsp; <?php echo $name; ?></span>
+							<span class="space-lang" style="width:22%;"><?php echo $email; ?></span>
+							<span class="space-lang" style="width:14%;"><?php echo $phone; ?></span>
+							<span class="space-option" style="width:13%;"><?php echo $address; ?></span>
+							<span class="space-lang" style="width:13%;"><?php echo date('j F, Y', strtotime($create_date)); ?></span>
+							<span class="space-option" style="width:15%;"><?php $vacid = $vacancy_id;
+                            $sqldata="select job_title from manage_vacancy where id='".$vacid."' ";
+							$resdata=mysql_query($sqldata) or die(mysql_error());
+							$rowdata=mysql_fetch_array($resdata);
+                           echo  $rowdata['job_title'];
+							?></span>
+							<div class="clear"></div>
+							</li><?php }?>
+
+							</ul>
+
+
+							
+							<ul><li class="page" style="text-align:center;"><?php echo $pager->renderFullNav();?></li></ul>
+								<?php } else
+							{ ?><ul> <li style="text-align:center"> No record found.</li></ul>
+							<?php } ?>
+  </div>
+                        </div>
+          </div>
+             <!--  <div class="return_dashboard"> <a href="welcome.php">Return to Dashboard</a></div>-->
+          <div class="clear"></div>
+            </div>
+			
+			
+          <!-- right col -->
+          
+          <div class="clear"></div>
+          
+          
+  </div>
+      <!-- main con--> 
+      
+      <!-- Footer start -->
+      
+      <?php 
+  
+			include("footer.inc.php");
+    ?>
+      <!-- Footer end --> 
+      
+    </div>
+<!-- Container div-->
+<!-- Container div-->
+<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script> 
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script>
+	function MM_openBrWindow(theURL,winName,features) 
+	{ 
+		window.open(theURL,winName,features);
+	}
+	</script>
+	<script type="text/javascript">
+
+jQuery(document).ready(function(){ 	
+	  function slideout(){
+  setTimeout(function(){
+  jQuery("#response").slideUp("slow", function () {
+      });
+    
+}, 2000);}
+	
+    jQuery("#response").hide();
+	jQuery(function() {
+	jQuery("#list ul").sortable({ opacity: 0.8, cursor: 'move', update: function() {
+			
+			var order = jQuery(this).sortable("serialize") + '&update=update' + '&tab=combine'; 
+			jQuery.post("updateList.php", order, function(theResponse){
+				jQuery("#response").html(theResponse);
+				jQuery("#response").slideDown('slow');
+				slideout();
+			}); 															 
+		}								  
+		});
+	});
+
+});	
+
+</script>
+
+<script type="text/javascript">
+
+function editlist(id) {
+    //generate the parameter for the php script
+    var data = 'id=' + id;
+    jQuery.ajax({
+        url: "editid.php",  
+        type: "POST", 
+        data: data,     
+        cache: false,
+        success: function (pub) { 
+		 jQuery('#loading').hide(); 
+		var dataid=+pub;
+		if(dataid==0)
+		{
+			var eror='Please valid input Type ';
+			
+			  jQuery('#validterror').html(eror);
+			   jQuery('#validterror').fadeIn('slow');    
+            //hide the progress bar
+			
+		}
+		else
+		{
+			var e='<a href="vacancy.php?editid='+dataid+'" title="Edit"><span class="icon-28-edit"></span>Edit</a>';
+			var d='<a href="vacancy_application_form.php?deleteid='+dataid+'&random=<?php echo $_SESSION['logtoken'];?>" onclick="return confirm(\'Are you sure you want to delete this record permanently?\');" title="Delete"><span class="icon-28-delete"></span>Delete</a>';
+			  //add the content retrieved from ajax and put it in the #content div
+            jQuery('#editer').html(e);
+			jQuery('#delete').html(d);
+            //display the body with fadeIn transition
+            jQuery('#editer').fadeIn('slow');    
+			 jQuery('#delete').fadeIn('slow');  	
+			
+		}
+        }       
+    });
+}
+
+</script>
+
+<script type = "text/javascript" >
+      function burstCache() {
+        if (!navigator.onLine) {
+            document.body.innerHTML = 'Loading...';
+            window.location = 'index.php';
+        }
+    }
+</script><script>
+var a=navigator.onLine;
+if(a){
+// alert('online');
+}else{
+alert('ofline');
+window.location='index.php';
+} </script>
+
+
+<script type="text/javascript">
+jQuery(".closestatus").click(function() {
+jQuery("#msgclose").addClass("hide");
+});
+</script>
+<script type="text/javascript">
+jQuery(".closestatus").click(function() {
+jQuery("#msgerror").addClass("hide");
+});
+</script>
+	
+<style>
+.hide {display:none;}
+</style>
+
+</body>
+</html>
+
+

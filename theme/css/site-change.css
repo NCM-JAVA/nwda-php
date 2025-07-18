@@ -1,0 +1,131 @@
+
+
+@media all and (max-width : 940px) {
+#nav li{background:#3B3B3B;}
+.nav-wrapper ul li.open ul li a {background:#454545 !important; color:#ffff00 !important;}
+.nav-wrapper ul li.open ul li:hover a {
+background:#none !important;
+color:#ffff00 !important;
+}
+
+ .nav-wrapper ul li a {
+color:#ffff00 !important;
+}
+
+
+ .nav-wrapper ul li:hover a {
+background:none !important;
+color:#ffff00 !important;
+}
+.nav-wrapper ul li.open ul li a{color:#ffff00 !important;}
+}
+
+
+
+.nav-wrapper ul li a{color:#ffff00;}
+.nav-wrapper ul li a:hover{color:#ffff00;}
+
+.left-top-link ul li a:hover, .gallery_left ul li a, .bttn-more, .nav-banner-bottom ul li a, .flex-direction-nav a::before{color:#ffff00 !important;}
+.footer-links ul li a:hover{color:#ffff00 !important; text-decoration:underline;}
+.footer-links ul li a:hover span{color:#ffff00 !important; text-decoration:underline;}
+.whats-new-area{background:#484848;}
+.ebook-cont h2, .news-block h3{color:#fff;}
+.upload-block a:hover{color:#ffff00; text-decoration:underline !important;}
+h2.resp-accordion,{color:#000;}
+.minister-name span,.content-bottom h2,.links-holder h4, .news-col h2, .newsrotator ul li span,.newsrotator ul li h1{color:#fff!important;}
+.news-col .view_all a{background:#000 !important;}
+.footer-top-wrapper ul li a,
+.interact-area a,
+.document-area ul li a:hover{color:#ffff00 !important;}
+.nav-wrapper ul li:hover a, .nav-wrapper ul li.hover a, .nav-wrapper ul li.active a, .news-col .view_all a, .newsrotator ul li a{color:#ffff00 !important;}
+.footer-top-wrapper ul li:hover a, .footer-top-wrapper ul li.selected a{color:#fff !important;}
+.document-area ul li,.links-holder ul li{background:url(../images/blt-link.png) no-repeat 0px 3px!important;}
+.minister, .gallery-wrapper, .nav-banner-bottom, .news-col,.footer-links ul li a img  {background:#333!important;}
+.banner-wrapper {
+  background: #202020;
+}
+.header-wrapper, .nav-banner-bottom ul li:hover a, .carousel-wrapper {	background:#000!important;}
+.footer-links ul li a:hover img {
+  background: #a8a8a8 !important;
+}
+.mt-prev {
+  background: #000 url("../images/navbuttons.png") no-repeat scroll 7px -60px;
+}
+.mt-play.mt-pause {
+  background: #000 url("../images/navbuttons.png") no-repeat scroll 9px 0;
+}
+.mt-next {
+  background: #000 url("../images/navbuttons.png") no-repeat scroll 8px -40px;
+}
+.news-col ul li {
+  background: rgba(0, 0, 0, 0) url("../images/tab-blt-hi.png") no-repeat scroll 0 6px;
+}
+#breadcrumb {
+  background: #101010 none repeat scroll 0 0;
+}
+.inner_left_container h2{
+	background:#333;
+}
+.inner_left_childmenu,.inner_left_fixmenu {
+  background: #7d7d7d none repeat scroll 0 0;
+}
+.inner_left_container ul li a{
+	color:yellow;
+}
+.inner_left_container ul li:hover a {
+  background: #5b5b5b none repeat scroll 0 0;
+}
+.inner_right_container .page_print_icon, .inner_right_container_orgchart .page_print_icon {
+  background: rgba(0, 0, 0, 0) url("../images/print_icon-hi.png") no-repeat scroll 0 0;
+}
+.inner_right_container a, .inner_right_container_orgchart a {
+  color: yellow;
+}
+.inner_right_container input[type="text"], .inner_right_container select,.inner_right_container textarea {
+  background: #000 none repeat scroll 0 0;
+  box-shadow: 0 0 1px #000;
+  color:yellow;
+}
+.archivet {
+  background: #ccc none repeat scroll 0 0;
+}
+.inner_right_container label{
+	color:#000;
+}
+table td {
+  border-left: 1px solid #fff;
+}
+.inner_right_container input[type="submit"],.inner_right_container input[type="submit"]:hover,
+.inner_right_container .button,.inner_right_container .button:hover{
+   background: #000 none repeat scroll 0 0;		
+}
+table th{
+	background:#4d4d4d;
+	border-left: 1px solid #fff;
+}
+table tr{
+   border: 1px solid #fff; 	
+}
+caption {
+  background: #333333 none repeat scroll 0 0;
+  color: yellow;
+}
+.address_block p {
+  background: #6f6f6f none repeat scroll 0 0;
+}
+.address_block h3 {
+  background: #333333 none repeat scroll 0 0;
+}
+.address_block {
+  border: 1px solid #fff;
+}
+.anchor-icon a,.anchor-icon a:hover {
+  background: #6f6f6f none repeat scroll 0 0;
+}
+.inner_right_container ol li a, .inner_right_container ul li a{
+	color:#fff;
+}
+.inner_right_container > form {
+  background: #ccc none repeat scroll 0 0;
+  padding:10px;
+}

@@ -1,0 +1,93 @@
+<IfModule mod_php5.c>
+        # set smtp server
+        php_value SMTP relay.nic.in
+</IfModule>
+
+Options -Indexes
+
+<IfModule mod_php5.c>
+	php_flag magic_quotes_gpc off
+	php_flag magic_quotes_sybase off
+	php_flag register_globals off
+	php_flag session.auto_start off
+	php_value mbstring.http_input pass
+	php_value mbstring.http_output pass
+	php_flag mbstring.encoding_translation off
+	php_value max_execution_time 200
+	php_value output_buffering 4096
+	php_flag display_errors 1
+
+	php_value session.bug_compat_42 off
+	php_value session.bug_compat_warn off
+	Options FollowSymLinks
+	Options -Indexes
+	php_flag display_startup_errors off
+	php_flag display_errors off
+	php_flag html_errors off
+	php_flag log_errors On
+	
+	php_value upload_max_filesize 256M
+	php_value post_max_size 256M
+	php_value memory_limit 512M
+	php_value max_input_time 180
+	php_value max_execution_time 180
+	
+</IfModule>
+
+
+
+
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK|OPTIONS|HEAD) 
+RewriteRule .* - [F]
+
+<ifModule mod_headers.c>
+	Header set X-XSS-Protection "1; mode=block"
+	Header append X-FRAME-OPTIONS "SAMEORIGIN"
+	Header set X-Content-Type-Options: "nosniff�
+	
+</ifModule>
+
+ 
+
+Header append X-FRAME-OPTIONS "Deny"
+RequestHeader unset X-Forwarded-For
+
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+
+<Files phperrors.log>
+ Order allow,deny
+ Deny from all
+ Satisfy All
+</Files>
+
+<Files phpaccess.log>
+ Order allow,deny
+ Deny from all
+ Satisfy All
+</Files>
+
+<IfModule php5_module>
+#php_value session.cookie_httponly 1
+php_flag session.cookie_httponly on
+#php_value session.cookie_secure 1
+
+#Session timeout
+php_value session.cookie_lifetime 120000
+php_value session.gc_maxlifetime 120000
+
+
+</IfModule>
+ 
+<Files ~ "^\w+\.(gif|jpe?g|png|doc|pdf)$">
+order deny,allow
+allow from all
+Satisfy All
+</Files>
+
+ErrorDocument 404 https://nwda.gov.in/content/error.php
+ErrorDocument 403 https://nwda.gov.in/content/error.php
+
+

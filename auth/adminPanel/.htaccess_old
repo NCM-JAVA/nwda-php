@@ -1,0 +1,15 @@
+RewriteEngine On 
+<Files ~ "^\w+\.(gif|jpe?g|png|doc|pdf)$">
+order deny,allow
+allow from all
+</Files>
+<IfModule mod_rewrite.c>
+   php_value upload_max_filesize 5M
+</IfModule>
+<IfModule mod_rewrite.c>
+   RewriteEngine on
+   RewriteRule ^manage_menu.php?module_id=1$ index.php
+</IfModule>
+
+
+ErrorDocument 404 http://nwda.gov.in/auth/adminPanel/error.php

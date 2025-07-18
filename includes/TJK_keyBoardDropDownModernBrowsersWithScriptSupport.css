@@ -1,0 +1,65 @@
+/****
+TJK_keyBoardDropDown
+Pure CSS Drop Down Menu [TJK_keyBoardDropDown] v1.2
+Copyright 2006, Thierry Koblentz - TJKDesign.com - All rights reserved.
+Read www.TJKDesign.com/articles/Pure_CSS_dropdown_Menu.asp
+****/
+
+/* IF JS IS ON we need to reset the rules that let keyboard users access the sub-menu on the page */
+.Menu_Red_Home #TJK_dropDownMenu li#Menu_Red_Home ul li a:focus,
+.Menu_Red_Home #TJK_dropDownMenu li#Menu_Red_Home ul li a:active,
+.Menu_Red_News #TJK_dropDownMenu li#Menu_Red_News ul li a:focus,
+.Menu_Red_News #TJK_dropDownMenu li#Menu_Red_News ul li a:active,
+.Menu_Red_Sport #TJK_dropDownMenu li#Menu_Red_Sport ul li a:focus,
+.Menu_Red_Sport #TJK_dropDownMenu li#Menu_Red_Sport ul li a:active,
+.Menu_Red_Opinion #TJK_dropDownMenu li#Menu_Red_Opinion ul li a:focus,
+.Menu_Red_Opinion #TJK_dropDownMenu li#Menu_Red_Opinion ul li a:active,
+.Menu_Red_Weather #TJK_dropDownMenu li#Menu_Red_Weather ul li a:focus,
+.Menu_Red_Weather #TJK_dropDownMenu li#Menu_Red_Weather ul li a:active,
+.Menu_Red_Markets #TJK_dropDownMenu li#Menu_Red_Markets ul li a:focus,
+.Menu_Red_Markets #TJK_dropDownMenu li#Menu_Red_Markets ul li a:active,
+/*.Menu_Red_Lifestyle #TJK_dropDownMenu li#Menu_Red_Lifestyle ul li a:focus,
+.Menu_Red_Lifestyle #TJK_dropDownMenu li#Menu_Red_Lifestyle ul li a:active,*/
+.Menu_Red_Community #TJK_dropDownMenu li#Menu_Red_Community ul li a:focus,
+.Menu_Red_Community #TJK_dropDownMenu li#Menu_Red_Community ul li a:active,
+.Menu_Red_Classifieds #TJK_dropDownMenu li#Menu_Red_Classifieds ul li a:focus,
+.Menu_Red_Classifieds #TJK_dropDownMenu li#Menu_Red_Classifieds ul li a:active,
+.Menu_Red_AboutUs #TJK_dropDownMenu li#Menu_Red_AboutUs ul li a:focus,
+.Menu_Red_AboutUs #TJK_dropDownMenu li#Menu_Red_AboutUs ul li a:active,
+.Menu_Red_Jobs #TJK_dropDownMenu li#Menu_Red_Jobs ul li a:focus,
+.Menu_Red_Jobs #TJK_dropDownMenu li#Menu_Red_Jobs ul li a:active,
+.Menu_Red_RealEstate #TJK_dropDownMenu li#Menu_Red_RealEstate ul li a:focus,
+.Menu_Red_RealEstate #TJK_dropDownMenu li#Menu_Red_RealEstate ul li a:active,
+.Menu_Red_Auto #TJK_dropDownMenu li#Menu_Red_Auto ul li a:focus,
+.Menu_Red_Auto #TJK_dropDownMenu li#Menu_Red_Auto ul li a:active,
+.Menu_Red_FairfaxNetwork #TJK_dropDownMenu li#Menu_Red_FairfaxNetwork ul li a:focus,
+.Menu_Red_FairfaxNetwork #TJK_dropDownMenu li#Menu_Red_FairfaxNetwork ul li a:active {position:relative !important;top:0 !important;}
+
+.Menu_Blue_Home #TJK_dropDownMenu li#Menu_Blue_Home ul li a:focus,
+.Menu_Blue_Home #TJK_dropDownMenu li#Menu_Blue_Home ul li a:active,
+.Menu_Blue_News #TJK_dropDownMenu li#Menu_Blue_News ul li a:focus,
+.Menu_Blue_News #TJK_dropDownMenu li#Menu_Blue_News ul li a:active,
+.Menu_Blue_Sport #TJK_dropDownMenu li#Menu_Blue_Sport ul li a:focus,
+.Menu_Blue_Sport #TJK_dropDownMenu li#Menu_Blue_Sport ul li a:active,
+.Menu_Blue_Opinion #TJK_dropDownMenu li#Menu_Blue_Opinion ul li a:focus,
+.Menu_Blue_Opinion #TJK_dropDownMenu li#Menu_Blue_Opinion ul li a:active,
+.Menu_Blue_Weather #TJK_dropDownMenu li#Menu_Blue_Weather ul li a:focus,
+.Menu_Blue_Weather #TJK_dropDownMenu li#Menu_Blue_Weather ul li a:active,
+.Menu_Blue_Markets #TJK_dropDownMenu li#Menu_Blue_Markets ul li a:focus,
+.Menu_Blue_Markets #TJK_dropDownMenu li#Menu_Blue_Markets ul li a:active,
+/*.Menu_Blue_Lifestyle #TJK_dropDownMenu li#Menu_Blue_Lifestyle ul li a:focus,
+.Menu_Blue_Lifestyle #TJK_dropDownMenu li#Menu_Blue_Lifestyle ul li a:active,*/
+.Menu_Blue_Community #TJK_dropDownMenu li#Menu_Blue_Community ul li a:focus,
+.Menu_Blue_Community #TJK_dropDownMenu li#Menu_Blue_Community ul li a:active,
+.Menu_Blue_Classifieds #TJK_dropDownMenu li#Menu_Blue_Classifieds ul li a:focus,
+.Menu_Blue_Classifieds #TJK_dropDownMenu li#Menu_Blue_Classifieds ul li a:active,
+.Menu_Blue_AboutUs #TJK_dropDownMenu li#Menu_Blue_AboutUs ul li a:focus,
+.Menu_Blue_AboutUs #TJK_dropDownMenu li#Menu_Blue_AboutUs ul li a:active,
+.Menu_Blue_Jobs #TJK_dropDownMenu li#Menu_Blue_Jobs ul li a:focus,
+.Menu_Blue_Jobs #TJK_dropDownMenu li#Menu_Blue_Jobs ul li a:active,
+.Menu_Blue_RealEstate #TJK_dropDownMenu li#Menu_Blue_RealEstate ul li a:focus,
+.Menu_Blue_RealEstate #TJK_dropDownMenu li#Menu_Blue_RealEstate ul li a:active,
+.Menu_Blue_Auto #TJK_dropDownMenu li#Menu_Blue_Auto ul li a:focus,
+.Menu_Blue_Auto #TJK_dropDownMenu li#Menu_Blue_Auto ul li a:active,
+.Menu_Blue_FairfaxNetwork #TJK_dropDownMenu li#Menu_Blue_FairfaxNetwork ul li a:focus,
+.Menu_Blue_FairfaxNetwork #TJK_dropDownMenu li#Menu_Blue_FairfaxNetwork ul li a:active {position:relative !important;top:0 !important;}

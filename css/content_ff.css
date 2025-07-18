@@ -1,0 +1,11 @@
+.content_ff{ 
+font-family: verdana !important;
+font-size: 87%;
+}
+
+.content_ff .content_heading{
+font-size: 14px !important;
+}
+.content_ff  p{
+/*font-size: 100%;*/
+}

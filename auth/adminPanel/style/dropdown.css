@@ -1,0 +1,260 @@
+﻿.navigation_a {width:100%;
+}
+.navigation_a li {
+	list-style-type: none;
+	margin: 0;
+}
+.topLinks {
+	clear: both;
+}
+#TJK_dropDownMenu, #TJK_dropDownMenu * {
+	margin: 10;
+	padding: 10;
+	z-index:1;
+}
+/* "Master" UL (the whole Menu) */
+#TJK_dropDownMenu {
+	position:relative;
+	width: 100%;	
+}
+/* All LIs */
+#TJK_dropDownMenu li {
+	position: relative; display:block;
+	/*background: url("../images/seperator.png") no-repeat scroll right top transparent;
+	text-align:center;*/ padding-bottom:1px; background:#829e17; margin-bottom:2px;
+}
+/* All anchors */
+#TJK_dropDownMenu a {
+	display: block;
+	padding:15px 0 15px 10px;
+	text-decoration: none;
+	color:#fff;
+	font-size:80%;
+	font-weight:bold;
+}
+#TJK_dropDownMenu a:hover {
+	background:url(../images/nav_hover.png) left top repeat-x;
+	text-decoration: none;
+	color:#999999;}
+
+ul#TJK_dropDownMenu li ul li a {font-weight:normal; padding:6px 10px;}
+	
+ul#TJK_dropDownMenu li ul li a:hover {
+	background:#647c06!important;
+	text-decoration: none;
+	color:#999999;}
+
+
+
+.navigation li.active5 {
+	background:url(../images/nav-over.jpg) repeat-x left top;
+}
+/* sub-menu LIs */
+#TJK_dropDownMenu li ul li {
+	border-left: 0;
+	border-bottom: 1px solid #fff;
+	width: 180px;
+	position: relative !important;
+	background:#84a016;
+	text-align:left;
+	display:block;
+}
+
+#TJK_dropDownMenu li ul li a {color:#fff!important;}
+
+#TJK_dropDownMenu li#Link8 ul li {
+	width: 158px;
+}
+/* sub-menu Anchors */
+#TJK_dropDownMenu li#Link1 ul li a, #TJK_dropDownMenu li#Link2 ul li a, #TJK_dropDownMenu li#Link3 ul li a, #TJK_dropDownMenu li#Link4 ul li a, #TJK_dropDownMenu li#Link5 ul li a, #TJK_dropDownMenu li#Link6 ul li a, #TJK_dropDownMenu li#Link7 ul li a, #TJK_dropDownMenu li#Link8 ul li a, #TJK_dropDownMenu li#Link9 ul li a, #TJK_dropDownMenu li#Link10 ul li a, #TJK_dropDownMenu li#Link11 ul li a, #TJK_dropDownMenu li#Link12 ul li a, #TJK_dropDownMenu li#Link13 ul li a, #TJK_dropDownMenu li#Link14 ul li a, #TJK_dropDownMenu li#Link15 ul li a, #TJK_dropDownMenu li#Link16 ul li a, #TJK_dropDownMenu li#Link17 ul li a, #TJK_dropDownMenu li#Link18 ul li a {
+	color: #000000;/**/
+	font-weight: normal;
+	float: none;
+	padding: 6px 10px;
+	background: none;
+	font: 11px/15px;
+}
+/* sub-menu ULs */
+#TJK_dropDownMenu li ul, #TJK_dropDownMenu li ul li#Link2-1 ul {
+	width: 100% !important;/* leaves room for padding */
+	position: absolute;
+	height: auto;
+	display: none;
+	left:250px; top:-20px;
+	
+	padding-top:1px;
+}
+#TJK_dropDownMenu li ul li span {
+	padding: 3px 10px;
+	display: block;
+	color: #000000;
+}
+#TJK_dropDownMenu li#Link2 ul li#Link2-1 span {
+	background: none;
+}
+#TJK_dropDownMenu li#Link2 ul li#Link2-1 a {
+	background: url('../images/white_arrow3.gif') no-repeat 95% 8px;
+}
+#TJK_dropDownMenu li#Link2 ul li#Link2-1 ul li a {
+	background: none;
+}
+#TJK_dropDownMenu li#Link2 ul li#Link2-1 a:hover, #TJK_dropDownMenu li#Link2 ul li#Link2-1 a:active, #TJK_dropDownMenu li#Link2 ul li#Link2-1 a:focus {
+	color: #000000;
+	background: #c0e1fa url('../images/white_arrow3.gif') no-repeat 95% 8px;
+}
+#TJK_dropDownMenu li#Link2 ul li#Link2-1 ul li a:hover, #TJK_dropDownMenu li#Link2 ul li#Link2-1 ul li a:active, #TJK_dropDownMenu li#Link2 ul li#Link2-1 ul li a:focus {
+	background: #4276b2;
+}
+#TJK_dropDownMenu li:hover ul, #TJK_dropDownMenu li.msieFix ul {
+	display: block;
+	z-index: 10;
+}
+#TJK_dropDownMenu li#Link2 ul li#Link2-1:hover ul, #TJK_dropDownMenu li#Link2 ul li#Link2-1:active ul, #TJK_dropDownMenu li#Link2 ul li#Link2-1:focus ul, #TJK_dropDownMenu li#Link2 .msieFix ul li.msieFix ul {
+	display: block;
+	z-index: 10;
+	left: 180px;
+	top: 0 !important;
+}
+#TJK_dropDownMenu li#Link1 ul li a:hover, #TJK_dropDownMenu li#Link1 ul li a:active, #TJK_dropDownMenu li#Link1 ul li a:focus, #TJK_dropDownMenu li#Link2 ul li a:hover, #TJK_dropDownMenu li#Link2 ul li a:active, #TJK_dropDownMenu li#Link2 ul li a:focus, #TJK_dropDownMenu li#Link3 ul li a:hover, #TJK_dropDownMenu li#Link3 ul li a:active, #TJK_dropDownMenu li#Link3 ul li a:focus, #TJK_dropDownMenu li#Link4 ul li a:hover, #TJK_dropDownMenu li#Link4 ul li a:active, #TJK_dropDownMenu li#Link4 ul li a:focus, #TJK_dropDownMenu li#Link5 ul li a:hover, #TJK_dropDownMenu li#Link5 ul li a:active, #TJK_dropDownMenu li#Link5 ul li a:focus, #TJK_dropDownMenu li#Link6 ul li a:hover, #TJK_dropDownMenu li#Link6 ul li a:active, #TJK_dropDownMenu li#Link6 ul li a:focus, #TJK_dropDownMenu li#Link7 ul li a:hover, #TJK_dropDownMenu li#Link7 ul li a:active, #TJK_dropDownMenu li#Link7 ul li a:focus, #TJK_dropDownMenu li#Link9 ul li a:hover, #TJK_dropDownMenu li#Link9 ul li a:active, #TJK_dropDownMenu li#Link9 ul li a:focus /*Change*/ {
+	background: #c0e1fa;
+	color: #000000;
+}
+/*Change 4 hindi*/
+/*Start*/
+#TJK_dropDownMenu li#Link11 ul li#Link11-1 span {
+	background: none;
+}
+#TJK_dropDownMenu li#Link11 ul li#Link11-1 a {
+	background: url('../images/white_arrow3.gif') no-repeat 95% 8px;
+}
+#TJK_dropDownMenu li#Link11 ul li#Link11-1 ul li a {
+	background: none;
+}
+#TJK_dropDownMenu li#Link11 ul li#Link11-1 a:hover, #TJK_dropDownMenu li#Link11 ul li#Link11-1 a:active, #TJK_dropDownMenu li#Link11 ul li#Link11-1 a:focus {
+	color: #000000;
+	background: #044676 url('../images/white_arrow3.gif') no-repeat 95% 8px;
+}
+#TJK_dropDownMenu li#Link11 ul li#Link11-1 ul li a:hover, #TJK_dropDownMenu li#Link11 ul li#Link11-1 ul li a:active, #TJK_dropDownMenu li#Link11 ul li#Link11-1 ul li a:focus {
+	background: #044676;
+}
+#TJK_dropDownMenu li:hover ul, #TJK_dropDownMenu li.msieFix ul {
+	display: block;
+	z-index: 10;
+}
+#TJK_dropDownMenu li#Link11 ul li#Link11-1:hover ul, #TJK_dropDownMenu li#Link11 ul li#Link11-1:active ul, #TJK_dropDownMenu li#Link11 ul li#Link11-1:focus ul, #TJK_dropDownMenu li#Link11 .msieFix ul li.msieFix ul {
+	display: block;
+	z-index: 10;
+	left: 180px;
+	top: 0 !important;
+}
+#TJK_dropDownMenu li#Link10 ul li a:hover, #TJK_dropDownMenu li#Link10 ul li a:active, #TJK_dropDownMenu li#Link10 ul li a:focus, #TJK_dropDownMenu li#Link11 ul li a:hover, #TJK_dropDownMenu li#Link11 ul li a:active, #TJK_dropDownMenu li#Link11 ul li a:focus, #TJK_dropDownMenu li#Link12 ul li a:hover, #TJK_dropDownMenu li#Link12 ul li a:active, #TJK_dropDownMenu li#Link12 ul li a:focus, #TJK_dropDownMenu li#Link13 ul li a:hover, #TJK_dropDownMenu li#Link13 ul li a:active, #TJK_dropDownMenu li#Link13 ul li a:focus, #TJK_dropDownMenu li#Link14 ul li a:hover, #TJK_dropDownMenu li#Link14 ul li a:active, #TJK_dropDownMenu li#Link14 ul li a:focus, #TJK_dropDownMenu li#Link15 ul li a:hover, #TJK_dropDownMenu li#Link15 ul li a:active, #TJK_dropDownMenu li#Link15 ul li a:focus, #TJK_dropDownMenu li#Link18 ul li a:hover, #TJK_dropDownMenu li#Link18 ul li a:active, #TJK_dropDownMenu li#Link18 ul li a:focus /*Change*/ {
+	background: #044676;
+	color: #000000;
+}
+/*End*/
+
+
+
+
+
+/**/
+
+
+
+
+
+
+#TJK_dropDownMenu a:hover, #TJK_dropDownMenu a:active, #TJK_dropDownMenu a:focus {
+	color: #fff;
+}
+#TJK_dropDownMenu li#Link1 a:hover, #TJK_dropDownMenu li#Link1 a:active, #TJK_dropDownMenu li#Link1 a:focus, #TJK_dropDownMenu li#Link4 a:hover, #TJK_dropDownMenu li#Link4 a:active, #TJK_dropDownMenu li#Link4 a:focus {
+	color: #000000;
+}
+.Link1 #TJK_dropDownMenu li#Link1 a, .Link2 #TJK_dropDownMenu li#Link2 a, .Link3 #TJK_dropDownMenu li#Link3 a, .Link4 #TJK_dropDownMenu li#Link4 a, .Link5 #TJK_dropDownMenu li#Link5 a, .Link6 #TJK_dropDownMenu li#Link6 a {/*color: #ffffff;*/
+}
+.Link1 #TJK_dropDownMenu li#Link1 ul, .Link2 #TJK_dropDownMenu li#Link2 ul, .Link3 #TJK_dropDownMenu li#Link3 ul, .Link4 #TJK_dropDownMenu li#Link4 ul, .Link5 #TJK_dropDownMenu li#Link5 ul, .Link6 #TJK_dropDownMenu li#Link6 ul, .Link2 #TJK_dropDownMenu li#Link2 ul li#Link2-1 ul {
+	display: block;
+	top:-1000px;
+	text-align:center;
+}
+/* "trigger" and "msieFix" classes */
+#TJK_dropDownMenu li.msieFix a {
+}
+/* last nested UL. keeping it in
+#TJK_dropDownMenu li#Link6 ul {left:-2.3em !important;}*/
+
+/* If JS is OFF we need to style the links in the sub-menu of the current page     */
+/* so they are accessible to keyboard users. Using a class on each link would let  */
+/* us stick each link in the same place, but we would have to plug a lot of        */
+/* attributes in the markup and many rules here, so...                             */
+.Link1 #TJK_dropDownMenu li#Link1 ul li a:focus, .Link1 #TJK_dropDownMenu li#Link1 ul li a:active, .Link2 #TJK_dropDownMenu li#Link2 ul li a:focus, .Link2 #TJK_dropDownMenu li#Link2 ul li a:active, .Link3 #TJK_dropDownMenu li#Link3 ul li a:focus, .Link3 #TJK_dropDownMenu li#Link3 ul li a:active, .Link4 #TJK_dropDownMenu li#Link4 ul li a:focus, .Link4 #TJK_dropDownMenu li#Link4 ul li a:active, .Link5 #TJK_dropDownMenu li#Link5 ul li a:focus, .Link5 #TJK_dropDownMenu li#Link5 ul li a:active, .Link6 #TJK_dropDownMenu li#Link6 ul li a:focus, .Link6 #TJK_dropDownMenu li#Link6 ul li a:active,.Link9 #TJK_dropDownMenu li#Link8 ul li a:focus, .Link9 #TJK_dropDownMenu li#Link8 ul li a:active, /*change*/ .Link2 #TJK_dropDownMenu li#Link2 ul li#Link2-1 ul li a:focus, .Link2 #TJK_dropDownMenu li#Link2 ul li#Link2-1 ul li a:active {
+	position:absolute !important;
+	top:1028px !important;
+}
+/* IF JS IS ON we need to reset the rules that let keyboard users access the sub-menu on the page */
+.Link1 #TJK_dropDownMenu li#Link1 ul li a:focus, .Link1 #TJK_dropDownMenu li#Link1 ul li a:active, .Link2 #TJK_dropDownMenu li#Link2 ul li a:focus, .Link2 #TJK_dropDownMenu li#Link2 ul li a:active, .Link3 #TJK_dropDownMenu li#Link3 ul li a:focus, .Link3 #TJK_dropDownMenu li#Link3 ul li a:active, .Link4 #TJK_dropDownMenu li#Link4 ul li a:focus, .Link4 #TJK_dropDownMenu li#Link4 ul li a:active, .Link5 #TJK_dropDownMenu li#Link5 ul li a:focus, .Link5 #TJK_dropDownMenu li#Link5 ul li a:active, .Link6 #TJK_dropDownMenu li#Link6 ul li a:focus, .Link6 #TJK_dropDownMenu li#Link6 ul li a:active,  .Link9 #TJK_dropDownMenu li#Link9 ul li a:focus, .Link9 #TJK_dropDownMenu li#Link9 ul li a:active, /*change*/ .Link2 #TJK_dropDownMenu li#Link2 ul li#Link2-1 ul li a:focus, .Link2 #TJK_dropDownMenu li#Link2 ul li#Link2-1 ul li a:active {
+	position:relative !important;
+	top:0 !important;
+}
+/*Change 4 Hindi*/
+
+
+/*Start*/
+/*#TJK_dropDownMenu li#Link10 a,
+#TJK_dropDownMenu li#Link13 a {background: none;}*/
+
+#TJK_dropDownMenu a:hover, #TJK_dropDownMenu a:active, #TJK_dropDownMenu a:focus {
+	color: #ffffff;
+}
+
+.Link10 #TJK_dropDownMenu li#Link10 a, .Link11 #TJK_dropDownMenu li#Link11 a, .Link12 #TJK_dropDownMenu li#Link12 a, .Link13 #TJK_dropDownMenu li#Link13 a, .Link14 #TJK_dropDownMenu li#Link14 a, .Link15 #TJK_dropDownMenu li#Link15 a {
+	color: #ffffff;
+}
+.Link1 #TJK_dropDownMenu li#Link10 ul, .Link2 #TJK_dropDownMenu li#Link11 ul, .Link3 #TJK_dropDownMenu li#Link12 ul, .Link4 #TJK_dropDownMenu li#Link13 ul, .Link5 #TJK_dropDownMenu li#Link14 ul, .Link6 #TJK_dropDownMenu li#Link15 ul,.Link2 #TJK_dropDownMenu li#Link11 ul li#Link11-1 ul {
+	display: block;
+	top:-1000px;
+}
+/* "trigger" and "msieFix" classes */
+#TJK_dropDownMenu li.msieFix a {
+}
+/* last nested UL. keeping it in
+#TJK_dropDownMenu li#Link6 ul {left:-2.3em !important;}*/
+
+/* If JS is OFF we need to style the links in the sub-menu of the current page     */
+/* so they are accessible to keyboard users. Using a class on each link would let  */
+/* us stick each link in the same place, but we would have to plug a lot of        */
+/* attributes in the markup and many rules here, so...                             */
+.Link10 #TJK_dropDownMenu li#Link1 ul li a:focus, .Link10 #TJK_dropDownMenu li#Link1 ul li a:active, .Link11 #TJK_dropDownMenu li#Link2 ul li a:focus, .Link11 #TJK_dropDownMenu li#Link2 ul li a:active, .Link12 #TJK_dropDownMenu li#Link3 ul li a:focus, .Link12 #TJK_dropDownMenu li#Link3 ul li a:active, .Link13 #TJK_dropDownMenu li#Link4 ul li a:focus, .Link13 #TJK_dropDownMenu li#Link4 ul li a:active, .Link14 #TJK_dropDownMenu li#Link5 ul li a:focus, .Link14 #TJK_dropDownMenu li#Link5 ul li a:active, .Link15 #TJK_dropDownMenu li#Link6 ul li a:focus, .Link15 #TJK_dropDownMenu li#Link6 ul li a:active, .Link18 #TJK_dropDownMenu li#Link18 ul li a:focus, .Link18 #TJK_dropDownMenu li#Link18 ul li a:active, /*change*/ .Link11 #TJK_dropDownMenu li#Link11 ul li#Link11-1 ul li a:focus, .Link11 #TJK_dropDownMenu li#Link11 ul li#Link11-1 ul li a:active {
+	position:absolute !important;
+	top:1028px !important;
+}
+/* IF JS IS ON we need to reset the rules that let keyboard users access the sub-menu on the page */
+.Link10 #TJK_dropDownMenu li#Link10 ul li a:focus, .Link10 #TJK_dropDownMenu li#Link10 ul li a:active, .Link11 #TJK_dropDownMenu li#Link11 ul li a:focus, .Link11 #TJK_dropDownMenu li#Link11 ul li a:active, .Link12 #TJK_dropDownMenu li#Link12 ul li a:focus, .Link12 #TJK_dropDownMenu li#Link12 ul li a:active, .Link13 #TJK_dropDownMenu li#Link13 ul li a:focus, .Link13 #TJK_dropDownMenu li#Link13 ul li a:active, .Link14 #TJK_dropDownMenu li#Link14 ul li a:focus, .Link14 #TJK_dropDownMenu li#Link14 ul li a:active, .Link15 #TJK_dropDownMenu li#Link15 ul li a:focus, .Link15 #TJK_dropDownMenu li#Link15 ul li a:active,.Link18 #TJK_dropDownMenu li#Link18 ul li a:focus, .Link18 #TJK_dropDownMenu li#Link18 ul li a:active, /*change*/ .Link11 #TJK_dropDownMenu li#Link11 ul li#Link11-1 ul li a:focus, .Link11 #TJK_dropDownMenu li#Link11 ul li#Link11-1 ul li a:active {
+	position:relative !important;
+	top:0 !important;
+}
+/*end*/
+.hidethis {
+	height:1px;
+	left:0;
+	overflow:hidden;
+	position:absolute;
+	width:1px;
+}
+#TJK_dropDownMenu li ul li ul {
+	margin-left:-1000px;
+}
+#TJK_dropDownMenu li ul li:hover ul {
+	margin:-27px 0 0 170px;
+	padding:0px;
+	z-index:100000;
+	position:absolute;
+	padding-left:10px;
+}
+#TJK_dropDownMenu li ul li a.arrow {
+	background:url(../images/arrow.png) no-repeat right center!important;
+	margin-right:3px;
+}
+#TJK_dropDownMenu li ul li a.arrow:hover {
+	background:#c0e1fa!important;
+}
